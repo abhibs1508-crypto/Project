@@ -1,160 +1,133 @@
 :root {
   --deep-green: #2f5d34;
   --olive-green: #6b8e23;
-  --earth-brown: #b08968;
-  --golden-sun: #f5d06b;
-  --sky-blue: #b8e4ff;
-  --soft-cream: #fafaf3;
+  --forest-green: #3f704d;
+  --light-leaf: #e8f5e1;
+  --warm-sun: #f3d17a;
+  --soft-cream: #faf9f5;
+  --golden-glow: #fff4d4;
   --text-dark: #1a2b1f;
 }
 
-/* ROOT ------------------------------------------------------ */
+/* ROOT ---------------------------------------------------- */
 .about-root {
   font-family: "Poppins", sans-serif;
   color: var(--text-dark);
-  background: linear-gradient(180deg, #f8fcf7 0%, #ffffff 100%);
   overflow-x: hidden;
 }
 
-/* HERO SECTION ---------------------------------------------- */
+/* HERO SECTION -------------------------------------------- */
 .about-hero {
   position: relative;
-  min-height: 75vh;
-  background: linear-gradient(120deg, #c9f0d1, #f7f0d8, #b3e5fc);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(135deg, #eaf7e0 0%, #fff4d4 50%, #f4ffe8 100%);
+  color: var(--deep-green);
   text-align: center;
+  padding: 8rem 2rem 6rem;
   overflow: hidden;
-  padding: 3rem 2rem;
 }
 
-.about-hero::after {
-  content: "";
+.hero-decor {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.3), transparent 70%),
-              radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.25), transparent 70%);
+  background: radial-gradient(circle at 30% 20%, rgba(243, 209, 122, 0.3), transparent 70%),
+              radial-gradient(circle at 80% 70%, rgba(91, 170, 97, 0.25), transparent 70%);
+  animation: floatBg 12s ease-in-out infinite alternate;
   z-index: 0;
-  animation: ambientGlow 8s ease-in-out infinite alternate;
 }
 
-@keyframes ambientGlow {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 0.9; transform: scale(1.1); }
+.hero-body {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 .about-hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--deep-green);
-  z-index: 1;
-  position: relative;
+  margin-bottom: 1rem;
+  color: var(--forest-green);
   animation: fadeSlideDown 1.2s ease forwards;
 }
 
 .about-hero .intro {
-  max-width: 700px;
-  margin: 1rem auto 0;
-  color: #305b36;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  z-index: 1;
-  position: relative;
-  animation: fadeSlideUp 1.5s ease forwards;
+  font-size: 1.2rem;
+  color: #2c452b;
+  line-height: 1.6;
+  animation: fadeSlideUp 1.4s ease forwards;
 }
 
-/* OUR VALUES ------------------------------------------------ */
+/* OUR VALUES SECTION -------------------------------------- */
 .about-values {
-  background: linear-gradient(135deg, #fefcf6, #f2fbe9, #fefcf6);
+  background: linear-gradient(140deg, #faf9f5 0%, #eef8e9 40%, #fff7e6 100%);
   padding: 6rem 2rem;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .about-values::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 60% 20%, rgba(255, 240, 180, 0.2), transparent 60%);
+  background: radial-gradient(circle at 10% 20%, rgba(243, 209, 122, 0.2), transparent 70%),
+              radial-gradient(circle at 80% 80%, rgba(47, 93, 52, 0.2), transparent 70%);
   z-index: 0;
+  animation: floatBg 16s ease-in-out infinite alternate;
+}
+
+.about-values .wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .about-values h2 {
+  color: var(--deep-green);
   font-size: 2.4rem;
   font-weight: 700;
-  color: var(--deep-green);
   margin-bottom: 3rem;
-  z-index: 1;
-  position: relative;
+  animation: fadeSlideDown 1.2s ease forwards;
 }
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  z-index: 1;
-  position: relative;
 }
 
 .value-card {
-  background: linear-gradient(160deg, #ffffff, #f8fff6);
+  background: #ffffff;
   border-radius: 1rem;
-  padding: 2.2rem;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
-  border-top: 4px solid var(--olive-green);
-  transition: all 0.5s ease;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.6s ease;
   transform: translateY(0);
-  animation: floatCard 6s ease-in-out infinite alternate;
+  animation: fadeSlideUp 1.2s ease forwards;
 }
 
 .value-card:hover {
-  transform: translateY(-12px);
-  background: linear-gradient(160deg, #fffbe8, #f2ffe8);
+  transform: translateY(-10px) scale(1.03);
+  background: linear-gradient(145deg, #f7ffe8, #fffbe6);
   box-shadow: 0 10px 35px rgba(107, 142, 35, 0.25);
 }
 
 .value-card h3 {
   color: var(--olive-green);
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.value-card:hover h3 {
-  color: var(--golden-sun);
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
 }
 
 .value-card p {
-  color: #31593b;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  color: #35593a;
+  line-height: 1.6;
 }
 
-.value-card:nth-child(1) {
-  border-top-color: #4caf50;
-  animation-delay: 0.3s;
-}
-.value-card:nth-child(2) {
-  border-top-color: #8bc34a;
-  animation-delay: 0.5s;
-}
-.value-card:nth-child(3) {
-  border-top-color: #cddc39;
-  animation-delay: 0.7s;
-}
-
-@keyframes floatCard {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-8px); }
-}
-
-/* OUR STORY -------------------------------------------------- */
+/* OUR STORY SECTION --------------------------------------- */
 .about-story {
+  background: linear-gradient(120deg, #f1fbe8 0%, #fff3c9 50%, #f7f7e1 100%);
   padding: 6rem 2rem;
   text-align: center;
-  background: linear-gradient(135deg, #f0f7e8, #e4f1d3, #f0f7e8);
   position: relative;
   overflow: hidden;
 }
@@ -163,73 +136,68 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(245, 208, 107, 0.2), transparent 70%),
-              radial-gradient(circle at 80% 70%, rgba(184, 228, 255, 0.3), transparent 70%);
+  background: radial-gradient(circle at 60% 30%, rgba(243, 209, 122, 0.25), transparent 70%),
+              radial-gradient(circle at 20% 70%, rgba(107, 142, 35, 0.25), transparent 70%);
   z-index: 0;
-  animation: slowPulse 10s ease-in-out infinite alternate;
+  animation: floatBg 18s ease-in-out infinite alternate;
 }
 
-@keyframes slowPulse {
-  0% { opacity: 0.6; transform: scale(1); }
-  100% { opacity: 0.9; transform: scale(1.05); }
+.about-story .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 .about-story h2 {
-  font-size: 2.4rem;
   color: var(--deep-green);
-  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 2rem;
+  animation: fadeSlideDown 1.2s ease forwards;
 }
 
 .about-story p {
-  max-width: 780px;
-  margin: 0 auto;
-  color: #2f4e34;
   font-size: 1.1rem;
+  color: #324d2c;
   line-height: 1.8;
-  position: relative;
-  z-index: 1;
-  animation: fadeSlideUp 1.8s ease forwards;
+  animation: fadeSlideUp 1.4s ease forwards;
 }
 
-/* SCROLL REVEAL ANIMATIONS ----------------------------------- */
+/* UNIVERSAL REVEAL EFFECTS -------------------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
 }
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
-.reveal.delay { transition-delay: 0.3s; }
-.reveal.delay-2 { transition-delay: 0.6s; }
 
-/* KEYFRAMES --------------------------------------------------- */
+.delay { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* KEYFRAME ANIMATIONS ------------------------------------- */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes fadeSlideDown {
   from { opacity: 0; transform: translateY(-50px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVE DESIGN ------------------------------------------ */
+@keyframes floatBg {
+  from { transform: scale(1) translateY(0); opacity: 0.9; }
+  to { transform: scale(1.05) translateY(-10px); opacity: 1; }
+}
+
+/* RESPONSIVE ---------------------------------------------- */
 @media (max-width: 768px) {
-  .about-hero h1 {
-    font-size: 2.2rem;
-  }
-  .about-hero .intro {
-    font-size: 1rem;
-  }
-  .value-card {
-    padding: 1.6rem;
-  }
-  .about-values,
-  .about-story {
-    padding: 4rem 1.5rem;
-  }
+  .about-hero h1 { font-size: 2.2rem; }
+  .about-hero .intro { font-size: 1rem; }
+  .about-values, .about-story { padding: 4rem 1.5rem; }
+  .value-card { padding: 1.5rem; }
 }

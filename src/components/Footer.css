@@ -1,67 +1,127 @@
+/* ===============================
+   Durvasha Prakrutik Footer Styles
+   =============================== */
+
 .footer {
-  background:#0f2123;
-  background-size: 300% 300%;
-  animation: gradientMove 12s ease infinite;
-  color: white;
+  background: linear-gradient(135deg, #0b3d2e, #0f5132, #164a25);
+  color: #f3f7f0;
   padding: 60px 20px 20px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  font-family: "Poppins", sans-serif;
 }
 
-/* Container grid */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(64, 193, 102, 0.25), transparent 70%);
+  animation: floatPulse 6s infinite alternate;
+  border-radius: 50%;
+}
+
+.footer::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(178, 255, 89, 0.2), transparent 70%);
+  animation: floatPulse 7s infinite alternate-reverse;
+  border-radius: 50%;
+}
+
+/* 🔹 Footer Container Layout */
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* Section Styles */
+/* 🌿 Footer Sections */
 .footer-section {
-  text-align: left;
-  animation: fadeIn 2s ease forwards;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(20px);
+  opacity: 0;
 }
 
-.footer-logo {
-  font-size: 1.8rem;
-  color: cyan;
-  text-shadow: 0 0 10px #00ffff;
-  margin-bottom: 10px;
+.footer-section.in-view {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.footer-section h3 {
-  font-size: 1.3rem;
-  color: #00ffff;
+.footer-section:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 255, 128, 0.15);
+  transform: translateY(-5px);
+}
+
+/* 🔸 Logo */
+.footer_logo {
+  width: 110px;
   margin-bottom: 15px;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 128, 0.25));
 }
 
+/* 🔸 Headings */
+.footer-section h3 {
+  color: #a8ff98;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-section h3::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #86efac, #b4ff7d);
+  bottom: -5px;
+  left: 0;
+  border-radius: 2px;
+}
+
+/* 🔸 Paragraph & Links */
 .footer-section p,
-.footer-section li a {
-  color: #b8e9ff;
-  font-size: 1rem;
-  line-height: 1.6;
-  transition: 0.3s ease;
+.footer-section a {
+  color: #d8f9d3;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.footer-section a:hover {
+  color: #b4ff7d;
+  transform: translateX(4px);
+}
+
+/* 🔸 Quick Links List */
 .footer-section ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-section li {
   margin-bottom: 8px;
 }
 
-/* Hover Effects */
-.footer-section a:hover {
-  color: cyan;
-  text-shadow: 0 0 8px #00ffff;
-  padding-left: 4px;
-}
-
-/* Social Icons */
+/* 🌿 Social Icons */
 .social-icons {
   display: flex;
   gap: 15px;
@@ -69,72 +129,104 @@
 }
 
 .social-icons a {
-  color: #b8e9ff;
-  font-size: 1.4rem;
-  transition: 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #a8ff98, #3cb371);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #0b3d2e;
+  font-size: 1rem;
+  transition: all 0.4s ease;
 }
 
 .social-icons a:hover {
-  color: cyan;
-  transform: scale(1.2);
-  text-shadow: 0 0 10px cyan;
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 0 15px rgba(150, 255, 150, 0.4);
+  background: linear-gradient(135deg, #b4ff7d, #43b581);
 }
 
-/* Footer Bottom */
+/* 🌾 Footer Bottom */
 .footer-bottom {
   margin-top: 40px;
-  border-top: 1px solid rgba(0, 255, 255, 0.3);
   text-align: center;
-  padding-top: 15px;
-  font-size: 0.95rem;
-  color: #b8e9ff;
+  font-size: 0.9rem;
+  color: #bdf6b3;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .highlight {
-  color: cyan;
-  text-shadow: 0 0 10px cyan;
+  color: #b4ff7d;
+  font-weight: 600;
+  transition: text-shadow 0.3s ease;
 }
 
-/* Background Gradient Animation */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.highlight:hover {
+  text-shadow: 0 0 10px rgba(150, 255, 150, 0.7);
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+/* ✨ Animations */
+@keyframes floatPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
   }
+  100% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* 🎞 Reveal Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.5s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.7s;
+}
+
+.fade-in.delay-4 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Delay classes for staggered fade-in */
-.fade-in.delay-1 { animation-delay: 0.4s; }
-.fade-in.delay-2 { animation-delay: 0.8s; }
-.fade-in.delay-3 { animation-delay: 1.2s; }
-
-/* Responsive Design */
+/* 📱 Responsive */
 @media (max-width: 768px) {
-  .footer {
+  .footer-container {
     text-align: center;
   }
+
   .footer-section {
-    text-align: center;
+    background: rgba(255, 255, 255, 0.04);
   }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .social-icons {
     justify-content: center;
   }
 }
-.footer_logo{
-  max-width: 7REM;
-    height: 5rem;
-    height: auto;
-    padding-bottom: 22px;
-    padding-left: 20px;
-  }

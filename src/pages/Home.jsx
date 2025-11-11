@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 // import Logo from "../assets/logo2.png";
-import bgvideo from "../assets/bg_video.mp4"
+import bgvideo from "../assets/bg_video.mp4";
+import Footer from "../components/Footer";
 export default function Home() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
@@ -77,6 +78,7 @@ export default function Home() {
           <a className="btn primary" href="/contact">Start Partnership</a>
         </div>
       </section>
+      <Footer/>
     </main>
   );
 }

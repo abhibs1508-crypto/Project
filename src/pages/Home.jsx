@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import Logo from "../assets/logo2.png";
+// import Logo from "../assets/logo2.png";
 import bgvideo from "../assets/bg_video.mp4"
 export default function Home() {
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function Home() {
   </div>
 
   <div className="hero-card">
-    <h1 className="hero-title">Durvasha Prakrutik</h1>
+    <h1 className="hero-title"><span className="durvasha"> Durvasha </span>Prakrutik</h1>
     <p className="hero-sub">
       Premium sustainable farming solutions — rooted in tradition, grown with science.
     </p>
@@ -38,7 +38,7 @@ export default function Home() {
       <a className="btn ghost" href="/contact">Contact Us</a>
     </div>
 
-    <div className="hero-watermark" aria-hidden />
+    {/* <div className="hero-watermark" aria-hidden /> */}
   </div>
 </section>
 

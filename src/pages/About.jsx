@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./About.css";
+import Footer from "../components/Footer";
 
 export default function About() {
   useEffect(() => {
@@ -50,6 +51,8 @@ export default function About() {
           <p>Founded to make farming profitable and sustainable. We started with a small farmer group and now support many communities through training, inputs and market connections.</p>
         </div>
       </section>
+        <Footer/>
     </main>
+   
   );
 }

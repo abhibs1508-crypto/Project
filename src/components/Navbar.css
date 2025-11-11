@@ -1,65 +1,188 @@
-/* Navbar - Deep Gradient Theme (opacity only here) */
-:root{
-  --emerald-from: #2f8a52;
-  --emerald-mid:  #1f6b44;
-  --emerald-deep: #124b34;
-  --gold: #ffd166;
-  --text-dark: #07271b;
-  --glass: rgba(255,255,255,0.88);
+/* ===========================
+   Navbar.css
+   Theme: Durvasha Prakrutik | Modern Agriculture
+   =========================== */
+
+:root {
+  --primary-green: #3cb043;
+  --secondary-green: #86efac;
+  --deep-green: #022d1e;
+  --light-green: #e6f8ec;
+  --text-light: #f0fdf4;
+  --white: #ffffff;
 }
 
-/* sticky translucent navbar */
-.ag-nav{
-  position: sticky; top: 0; z-index: 1400;
-  background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.70));
-  backdrop-filter: blur(8px);
-  transition: background .32s ease, box-shadow .28s ease;
-}
-.ag-nav.scrolled{
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,249,244,0.98));
-  box-shadow: 0 12px 40px rgba(6,18,14,0.08);
-}
-
-.ag-inner{
-  max-width:1200px; margin:0 auto; padding:12px 20px;
-  display:flex; align-items:center; justify-content:space-between; gap:18px;
+/* NAVBAR ROOT ------------------- */
+.ag-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: all 0.4s ease;
+  z-index: 1000;
+  box-shadow: none;
 }
 
-/* brand */
-.ag-brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
-.ag-logo{ width:46px; height:46px; border-radius:8px; object-fit:cover; box-shadow: 0 8px 26px rgba(18,75,46,0.08); }
-.ag-title{ color:var(--text-dark); font-weight:700; letter-spacing:0.3px; }
-
-/* links desktop */
-.ag-links{ display:flex; gap:20px; list-style:none; margin:0; padding:0; align-items:center; }
-.ag-links li a{
-  color:var(--text-dark); text-decoration:none; font-weight:600; position:relative; padding:8px 6px;
-  transition: color .22s ease, transform .18s ease;
+.ag-nav.scrolled {
+  background: linear-gradient(135deg, rgba(2, 45, 30, 0.9), rgba(10, 95, 56, 0.9));
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.ag-links li a:hover{ color:var(--emerald-mid); transform: translateY(-2px); }
 
-/* animated underline (i) */
-.ag-links li a i{ position:absolute; left:0; right:0; bottom:-7px; margin:auto; height:3px; width:0;
-  background: linear-gradient(90deg, var(--gold), #ffe9a1); border-radius:3px;
-  transition: width .34s cubic-bezier(.2,.9,.2,1); box-shadow: 0 0 12px rgba(255,209,102,0.12);
+/* INNER WRAPPER ------------------- */
+.ag-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  transition: all 0.4s ease;
 }
-.ag-links li a:hover i, .ag-links li a.active i{ width:70%; }
 
-/* hamburger */
-.ag-burger{ display:none; background:transparent; border:none; padding:6px; cursor:pointer; }
-.ag-burger span{ display:block; width:26px; height:3px; background:var(--text-dark); margin:6px 0; border-radius:3px; transition: transform .25s ease, opacity .18s ease; }
-.ag-burger.open span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-.ag-burger.open span:nth-child(2){ opacity:0; }
-.ag-burger.open span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+/* LOGO + BRAND ------------------- */
+.ag-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
 
-/* mobile menu */
-@media (max-width:880px){
-  .ag-burger{ display:block; }
-  .ag-links{
-    position:fixed; top:68px; right:12px; width:320px; max-width:86%;
-    flex-direction:column; gap:12px; padding:16px; border-radius:12px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,247,241,0.98));
-    transform: translateY(-8px); opacity:0; pointer-events:none; transition: all .28s ease;
+.ag-logo {
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ag-brand:hover .ag-logo {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.ag-title {
+  background: linear-gradient(90deg, #b4ec51, #429321);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 3s infinite alternate;
+}
+
+/* LINKS ------------------- */
+.ag-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.4s ease;
+}
+
+.ag-links li a {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ag-links li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #3cb043, #a7f3d0);
+  transition: width 0.3s ease;
+}
+
+.ag-links li a:hover::after,
+.ag-links li a.active::after {
+  width: 100%;
+}
+
+.ag-links li a:hover {
+  color: var(--secondary-green);
+  text-shadow: 0 0 10px rgba(134, 239, 172, 0.6);
+}
+
+/* BURGER MENU ------------------- */
+.ag-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+  transition: all 0.3s ease;
+}
+
+.ag-burger span {
+  width: 100%;
+  height: 3px;
+  background: var(--text-light);
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+.ag-burger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.ag-burger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.ag-burger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* MOBILE MENU ------------------- */
+@media (max-width: 900px) {
+  .ag-burger {
+    display: flex;
   }
-  .ag-links.open{ transform: translateY(0); opacity:1; pointer-events:auto; }
+
+  .ag-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+    background: linear-gradient(180deg, #043f2e, #0a5f38);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.25);
+    transition: right 0.5s ease;
+  }
+
+  .ag-links.open {
+    right: 0;
+  }
+
+  .ag-links li a {
+    font-size: 1.3rem;
+  }
+}
+
+/* ANIMATIONS ------------------- */
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 10px rgba(180, 236, 81, 0.4);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(66, 147, 33, 0.8);
+  }
 }

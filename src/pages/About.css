@@ -106,20 +106,19 @@
 }
 
 .value-card {
-  background: linear-gradient(160deg, #ffffff, #f4fff8);
+ background: #ffffff;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
   border-top: 3px solid var(--primary-green);
-  transition: all 0.6s ease;
-  animation: cardFloat 5s ease-in-out infinite alternate;
+  transition: all 0.4s ease;
+
+}
+.value-card:hover {
+ transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-.value-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 12px 35px rgba(46, 125, 50, 0.25);
-  background: linear-gradient(160deg, #fafff9, #d5ffe4);
-}
 
 .value-card h3 {
   color: var(--primary-green);

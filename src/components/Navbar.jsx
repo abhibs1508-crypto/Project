@@ -1,55 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/logo2.png";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
+import logo2 from "../assets/logo2.png";
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const loc = useLocation();
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const links = ["Home", "About", "Services", "Blog", "Contact"];
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className={`ag-nav ${scrolled ? "scrolled" : ""}`}>
-      <nav className="ag-inner">
-        <Link to="/" className="ag-brand" onClick={() => setOpen(false)}>
-          <img src={Logo} alt="Durvasha Prakrutik" className="ag-logo" />
-          <span className="ag-title">Durvasha Prakrutik</span>
-        </Link>
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* 🌿 Logo */}
+        <div className="logo" onClick={closeMenu}>
+          <img src={logo2} alt="Durvasha Prakrutik" />
+          <span>Durvasha Prakrutik</span>
+        </div>
 
-        <button
-          className={`ag-burger ${open ? "open" : ""}`}
-          onClick={() => setOpen((s) => !s)}
-          aria-label="toggle menu"
-        >
-          <span /><span /><span />
-        </button>
+        {/* 🌾 Menu Toggle for Mobile */}
+        <div className={`menu-toggle ${isOpen ? "active" : ""}`} onClick={toggleMenu}>
+          <span></span><span></span><span></span>
+        </div>
 
-        <ul className={`ag-links ${open ? "open" : ""}`}>
-          {links.map((n) => {
-            const p = n === "Home" ? "/" : `/${n.toLowerCase()}`;
-            return (
-              <li key={n}>
-                <Link
-                  to={p}
-                  className={loc.pathname === p ? "active" : ""}
-                  onClick={() => setOpen(false)}
-                >
-                  {n}
-                  <i aria-hidden />
-                </Link>
-              </li>
-            );
-          })}
+        {/* 🔗 Navigation Links */}
+        <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+          <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
+          <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
+          <li><NavLink to="/services" onClick={closeMenu}>Services</NavLink></li>
+          <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
+          <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
         </ul>
-      </nav>
-    </header>
+      </div>
+    </nav>
   );
-}
+};
+
+export default Navbar;

@@ -1,47 +1,207 @@
-:root{
-  --leaf-dark: #3e6b4a;
-  --leaf-mid:  #66a06b;
-  --gold:      #f6c84c;
-  --beige:     #f5f1e6;
-  --text:      #1f3b2e;
-  --muted:     #6b8875;
+/* 🌿 Root Container */
+.contact-root {
+  background: linear-gradient(145deg, #ffffff, #f6fff2, #fff8e1);
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease forwards;
+  overflow: hidden;
 }
 
-.contact-root{ min-height:100vh; padding:72px 6%; background: linear-gradient(180deg, var(--beige) 0%, #eef7ef 60%); color:var(--text); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* head */
-.contact-head{ text-align:center; margin-bottom:24px; }
-.contact-head h1{ color:var(--leaf-mid); font-size:2.2rem; }
-.contact-head .lead{ color:var(--muted); }
+/* 🌾 Header Section */
+.contact-head {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-/* grid */
-.contact-grid{ display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
+.contact-head h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #1b8a3b, #f6b800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  font-weight: 700;
+  animation: glowText 3s infinite ease-in-out;
+}
 
-/* boxes */
-.contact-box{ width:420px; max-width:100%; padding:20px; border-radius:12px; background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(245,241,230,0.86)); box-shadow:0 8px 30px rgba(62,107,74,0.06); transition: transform .28s ease; }
-.contact-box:hover{ transform: translateY(-6px); }
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 6px rgba(246,184,0,0.25); }
+  50% { text-shadow: 0 0 15px rgba(27,138,59,0.35); }
+}
 
-/* form */
-.form-box h3{ color:var(--leaf-mid); margin-bottom:10px; }
-.form-box label{ display:block; margin-top:10px; color:var(--text); font-weight:600; }
-.form-box input, .form-box textarea{ width:100%; margin-top:6px; padding:10px 12px; border-radius:8px; border:1px solid rgba(62,107,74,0.08); background: #fff; color:var(--text); transition: box-shadow .22s ease, transform .18s ease; }
-.form-box input:focus, .form-box textarea:focus{ outline:none; box-shadow:0 8px 30px rgba(102,160,107,0.08); transform: translateY(-2px); }
+.contact-head .lead {
+  color: #2b3a2b;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
 
-/* submit */
-.btn-submit{ margin-top:12px; width:100%; padding:12px; border-radius:10px; border:none; font-weight:700; background: linear-gradient(90deg,var(--gold), #ffd88b); color:var(--leaf-dark); cursor:pointer; box-shadow:0 10px 36px rgba(246,200,76,0.12); transition: transform .24s ease; }
-.btn-submit:hover{ transform: translateY(-6px); }
+/* ✨ Layout Grid */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+}
 
-/* info */
-.info-box h3{ color:var(--leaf-mid); margin-bottom:10px; }
-.info-row{ display:flex; justify-content:space-between; gap:8px; margin:8px 0; color:var(--text); }
-.muted{ color:var(--muted); }
+/* 🌼 Contact Boxes */
+.contact-box {
+  border-radius: 18px;
+  padding: 35px 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-/* reveal */
-.reveal{ opacity:0; transform: translateY(20px); transition: all .72s cubic-bezier(.2,.9,.2,1); }
-.reveal.in-view{ opacity:1; transform: translateY(0); }
+.contact-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(250,255,245,0.4));
+  z-index: -1;
+}
 
-/* responsive */
-@media (max-width:920px){
-  .contact-box{ width:100%; }
-  .contact-grid{ gap:18px; }
+.contact-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(27,138,59,0.2);
+}
+
+/* 🌿 Form Section */
+.form-box {
+  flex: 1 1 520px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,250,240,0.7));
+  border: 1px solid rgba(27,138,59,0.2);
+}
+
+.form-box h3 {
+  color: #1b8a3b;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  border-left: 5px solid #f6b800;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+/* 🪶 Form Fields */
+label {
+  display: block;
+  color: #305f32;
+  font-weight: 500;
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border: 2px solid rgba(27,138,59,0.15);
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  color: #234123;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+input:hover,
+textarea:hover {
+  border-color: rgba(246,184,0,0.6);
+  box-shadow: 0 0 10px rgba(246,184,0,0.2);
+}
+
+input:focus,
+textarea:focus {
+  border-color: #1b8a3b;
+  box-shadow: 0 0 15px rgba(27,138,59,0.4);
+  background: #fffef6;
+  transform: scale(1.01);
+}
+
+/* 🌟 Fancy Floating Effect */
+@keyframes floatIn {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+input, textarea {
+  animation: floatIn 0.7s ease forwards;
+}
+
+/* ✉️ Button Styling */
+.btn-submit {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #1b8a3b, #f6b800);
+  border: none;
+  color: #fff;
+  padding: 14px 24px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(27,138,59,0.3);
+  font-weight: 600;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(90deg, #177830, #ffca28);
+  box-shadow: 0 0 25px rgba(246,184,0,0.6);
+  transform: scale(1.05);
+}
+
+/* 🪴 Info Section */
+.info-box {
+  flex: 0.8 1 320px;
+  background: linear-gradient(135deg, rgba(250,255,245,0.85), rgba(255,255,255,0.7));
+  border: 1px solid rgba(246,184,0,0.25);
+  color: #234123;
+}
+
+.info-box h3 {
+  color: #1b8a3b;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-left: 5px solid #f6b800;
+  padding-left: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+
+.info-row strong {
+  color: #1b8a3b;
+}
+
+.muted {
+  color: #444;
+  opacity: 0.85;
+}
+
+/* ✨ Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import heroVideo from "../assets/bg_video.mp4";
 import aboutImg from "../assets/about.jpg";
 import service1 from "../assets/service1.jpeg";
 import service2 from "../assets/service2.jpeg";
 import service3 from "../assets/service3.jpeg";
-import farmerImg1 from "../assets/farmer.jpg";
-import farmerImg2 from "../assets/farmer2.jpeg";
-import farmerImg3 from "../assets/farmer3.jpeg";
+import farmerImg from "../assets/farmer.jpg";
 
 export default function Home() {
   useEffect(() => {
@@ -64,9 +62,7 @@ export default function Home() {
             <img src={aboutImg} alt="About Durvasha" className="about-img" />
           </div>
           <div className="about-text">
-            <h2>
-              About <span className="highlight">Us</span>
-            </h2>
+            <h2>About <span className="highlight">Us</span></h2>
             <p>
               At Durvasha Prakrutik, we believe that nature holds the key to
               prosperity. Our mission is to bring innovation and tradition
@@ -79,18 +75,14 @@ export default function Home() {
               <li>💧 Smart Irrigation Systems</li>
               <li>🚜 Modern Agricultural Technologies</li>
             </ul>
-            <a href="/about" className="btn secondary">
-              Learn More
-            </a>
+            <a href="/about" className="btn secondary">Learn More</a>
           </div>
         </div>
       </section>
 
       {/* 🌿 Services Section */}
       <section className="services reveal">
-        <h2>
-          Our <span className="highlight">Services</span>
-        </h2>
+        <h2>Our <span className="highlight">Services</span></h2>
         <p className="section-desc">
           We offer innovative and sustainable solutions to make agriculture
           smarter, efficient, and eco-friendly.
@@ -116,8 +108,8 @@ export default function Home() {
             <img src={service3} alt="Agri-Tech" />
             <h3>Agri-Tech Solutions</h3>
             <p>
-              Integrating smart sensors and AI tools to improve water management
-              and crop yields.
+              Integrating smart sensors and AI tools to improve water
+              management and crop yields.
             </p>
           </div>
         </div>
@@ -147,77 +139,25 @@ export default function Home() {
 
       {/* 🌻 Testimonial Section */}
       <section className="testimonial reveal">
-        <h2>
-          What <span className="highlight">Farmers Say</span>
-        </h2>
-        <TestimonialSlider />
+        <h2>What <span className="highlight">Farmers Say</span></h2>
+        <div className="testimonial-card">
+          <img src={farmerImg} alt="Farmer" />
+          <blockquote>
+            “Durvasha Prakrutik helped me adopt organic farming and improve my
+            soil health. My yield and profits have grown naturally!”
+          </blockquote>
+          <p className="farmer-name">— Ramesh Patel, Gujarat</p>
+        </div>
       </section>
 
       {/* 🌱 CTA Section */}
       <section className="cta reveal">
         <h2>Join the Green Revolution</h2>
         <p>Partner with us to create a future that grows sustainably for all.</p>
-        <a href="/contact" className="btn primary">
-          Get in Touch
-        </a>
+        <a href="/contact" className="btn primary">Get in Touch</a>
       </section>
 
-      <Footer />
+      
     </main>
   );
 }
-
-/* -----------------------------
-   🌾 Testimonial Slider Component
---------------------------------*/
-const TestimonialSlider = () => {
-  const testimonials = [
-    {
-      img: farmerImg1,
-      quote:
-        "Durvasha Prakrutik helped me adopt organic farming and improve my soil health. My yield and profits have grown naturally!",
-      name: "— Ramesh Patel, Gujarat",
-    },
-    {
-      img: farmerImg2,
-      quote:
-        "Thanks to Durvasha, I now use eco-friendly fertilizers and modern irrigation. My farm is thriving like never before!",
-      name: "— Sunita Devi, Maharashtra",
-    },
-    {
-      img: farmerImg3,
-      quote:
-        "The training programs are excellent. I learned new ways to grow crops sustainably without harming the environment.",
-      name: "— Mahesh Yadav, Rajasthan",
-    },
-  ];
-
-  const [index, setIndex] = useState(0);
-
-  const prevTestimonial = () =>
-    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-
-  const nextTestimonial = () =>
-    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-
-  return (
-    <div className="testimonial-card">
-      <div className="testimonial-img">
-        <img src={testimonials[index].img} alt="Farmer" />
-        <div className="img-glow"></div>
-      </div>
-
-      <blockquote>“{testimonials[index].quote}”</blockquote>
-      <p className="farmer-name">{testimonials[index].name}</p>
-
-      <div className="testimonial-buttons">
-        <button className="btn ghost" onClick={prevTestimonial}>
-          ◀ Prev
-        </button>
-        <button className="btn primary" onClick={nextTestimonial}>
-          Next ▶
-        </button>
-      </div>
-    </div>
-  );
-};

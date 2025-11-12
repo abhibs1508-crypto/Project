@@ -233,10 +233,9 @@
 
 /* 🌾 Testimonials */
 .testimonial {
-  padding: 80px 20px;
+  padding: 6rem 2rem;
   text-align: center;
   background: linear-gradient(180deg, #ffffff, #fdfae6);
-  overflow: hidden;
 }
 
 .testimonial-card {
@@ -247,7 +246,7 @@
 .testimonial-card img {
   width: 100px;
   height: 100px;
-  border-radius: 100px;
+  border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
   box-shadow: 0 5px 15px rgba(198, 167, 0, 0.4);
@@ -392,10 +391,10 @@ blockquote {
 }
 
 @keyframes underlineGrow {
-  0% {
+  from {
     width: 10%;
   }
-  100% {
+  to {
     width: 100%;
   }
 }

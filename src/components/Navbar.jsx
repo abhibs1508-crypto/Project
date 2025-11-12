@@ -28,6 +28,7 @@ const Navbar = () => {
           <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
           <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
           <li><NavLink to="/services" onClick={closeMenu}>Services</NavLink></li>
+          <li><NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink></li>
           <li><NavLink to="/blog" onClick={closeMenu}>Blog</NavLink></li>
           <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
         </ul>

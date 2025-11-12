@@ -392,10 +392,10 @@ blockquote {
 }
 
 @keyframes underlineGrow {
-  from {
-    width: 50%;
+  0% {
+    width: 10%;
   }
-  to {
+  100% {
     width: 100%;
   }
 }

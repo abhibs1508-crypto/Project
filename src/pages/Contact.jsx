@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Contact.css";
+import Footer from "../components/Footer";
 
 export default function Contact(){
   const [form, setForm] = useState({ name:'', email:'', phone:'', subject:'', message:'' });
@@ -51,6 +52,7 @@ export default function Contact(){
           <div style={{marginTop:12}} className="muted">Prefer phone? Best times: Mon–Sat, 9AM–6PM IST</div>
         </aside>
       </section>
+      <Footer/>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import heroVideo from "../assets/bg_video.mp4";
 import aboutImg from "../assets/about.jpg";
 import service1 from "../assets/service1.jpeg";
@@ -157,7 +157,7 @@ export default function Home() {
         <a href="/contact" className="btn primary">Get in Touch</a>
       </section>
 
-      
+      <Footer />
     </main>
   );
 }

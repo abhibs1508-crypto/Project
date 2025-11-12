@@ -19,7 +19,7 @@ function App() {
         <Route path="/services/:id" element={<ServiceDetail />} /> {/* ✅ Detail Page */}
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

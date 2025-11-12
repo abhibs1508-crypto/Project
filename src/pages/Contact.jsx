@@ -52,7 +52,7 @@ export default function Contact(){
           <div style={{marginTop:12}} className="muted">Prefer phone? Best times: Mon–Sat, 9AM–6PM IST</div>
         </aside>
       </section>
-      <Footer/>
+      <Footer />
     </main>
   );
 }

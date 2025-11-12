@@ -3,9 +3,9 @@ import "./Home.css";
 import Footer from "../components/Footer";
 import heroVideo from "../assets/bg_video.mp4";
 import aboutImg from "../assets/about.jpg";
-import service1 from "../assets/service1.jpg";
-import service2 from "../assets/service2.jpg";
-import service3 from "../assets/service3.jpg";
+import service1 from "../assets/service1.jpeg";
+import service2 from "../assets/service2.jpeg";
+import service3 from "../assets/service3.jpeg";
 import farmerImg from "../assets/farmer.jpg";
 
 export default function Home() {

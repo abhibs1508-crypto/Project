@@ -208,29 +208,6 @@
   font-size: 1rem;
 }
 
-/* 🌻 Achievements */
-.achievements {
-  background: linear-gradient(90deg, #e8f5e9, #fffde7);
-  padding: 5rem 2rem;
-  text-align: center;
-}
-
-.achieve-grid {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.achieve-item h3 {
-  font-size: 2.2rem;
-  color: #1b5e20;
-}
-
-.achieve-item p {
-  color: #3e4d3e;
-}
-
 /* 🌾 Testimonials */
 .testimonial {
   padding: 6rem 2rem;
@@ -264,107 +241,6 @@ blockquote {
   color: #1b5e20;
 }
 
-/* 🌱 CTA */
-.cta {
-  background: linear-gradient(90deg, #1b5e20, #388e3c, #c6a700);
-  color: white;
-  text-align: center;
-  padding: 5rem 2rem;
-}
-
-.cta h2 {
-  font-size: 2.5rem;
-}
-
-.cta p {
-  margin: 1rem 0 2rem;
-  font-size: 1.2rem;
-}
-
-/* ✨ Animations */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 📱 Responsive */
-@media (max-width: 900px) {
-  .about-container {
-    flex-direction: column;
-  }
-  .about-img {
-    width: 100%;
-  }
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-  .service-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-.testimonial-card {
-  text-align: center;
-  max-width: 600px;
-  margin: 2rem auto;
-  transition: all 0.5s ease;
-}
-
-.testimonial-img {
-  position: relative;
-}
-
-.testimonial-img img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1rem;
-}
-
-.img-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(rgba(0, 255, 0, 0.2), transparent);
-  z-index: -1;
-}
-
-.testimonial-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.testimonial-buttons .btn {
-  transition: all 0.3s ease;
-}
-
-.testimonial-buttons .btn:hover {
-  transform: scale(1.05);
-}
 .testimonial h2 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -391,10 +267,94 @@ blockquote {
 }
 
 @keyframes underlineGrow {
-  from {
-    width: 10%;
+  from { width: 10%; }
+  to { width: 100%; }
+}
+
+/* 🌾 Flowing Image Slider */
+.flow-gallery {
+  overflow: hidden;
+  background: #f9fff8;
+  padding: 40px 0;
+  position: relative;
+  text-align: center;
+}
+
+.flow-gallery h2 {
+  font-size: 2.5rem;
+  color: #1b5e20;
+  margin-bottom: 30px;
+}
+
+.flow-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.flow-track {
+  display: flex;
+  width: max-content;
+  animation: flowLeft 20s linear infinite;
+}
+
+.flow-track img {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+  transition: transform 0.8s ease;
+  cursor: pointer;
+}
+
+.flow-track img:hover {
+  transform: scale(1.08);
+  animation-play-state: paused;
+}
+
+@keyframes flowLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Scroll reveal support */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s ease;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flow-track img {
+    width: 150px;
+    height: 100px;
+    margin: 0 8px;
   }
-  to {
+  .about-container {
+    flex-direction: column;
+  }
+  .about-img {
     width: 100%;
   }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ✨ Hero fadeIn animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }

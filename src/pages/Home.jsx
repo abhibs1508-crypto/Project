@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./Home.css";
 import Footer from "../components/Footer";
 import heroVideo from "../assets/bg_video.mp4";
 import aboutImg from "../assets/about.jpg";
@@ -8,156 +7,113 @@ import service2 from "../assets/service2.jpeg";
 import service3 from "../assets/service3.jpeg";
 import farmerImg from "../assets/farmer.jpg";
 
+// Flowing slider images
+import c1 from "../assets/gallery/cultivation/c1.jpeg";
+import c2 from "../assets/gallery/cultivation/c2.jpeg";
+import c3 from "../assets/gallery/cultivation/c3.jpeg";
+import c4 from "../assets/gallery/cultivation/c4.jpeg";
+
+import "./Home.css";
+
 export default function Home() {
+  // Scroll reveal effect
   useEffect(() => {
-    const sections = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
+    const els = document.querySelectorAll(".reveal");
+    const obs = new IntersectionObserver(
+      (entries) =>
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      },
-      { threshold: 0.15 }
+          if (entry.isIntersecting) entry.target.classList.add("in-view");
+        }),
+      { threshold: 0.1 }
     );
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   return (
-    <main className="home-root">
-      {/* 🌿 Hero Section */}
-      <section className="hero">
-        <video className="hero-video" autoPlay loop muted playsInline>
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-
-        <div className="hero-overlay" />
-        <div className="hero-content reveal">
-          <h1>
-            <span className="highlight">Durvasha Prakrutik</span>
-            <br />
-            Growing the Future Naturally
-          </h1>
-          <p>
-            Empowering farmers and communities through sustainable agriculture
-            and organic innovation.
-          </p>
+    <div className="home-root">
+      {/* Hero Section */}
+      <section className="hero reveal">
+        <video className="hero-video" autoPlay muted loop src={heroVideo}></video>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1>Welcome to Durvasha Prakrutik</h1>
+          <p>Organic farming solutions for sustainable growth and healthy soil.</p>
           <div className="hero-buttons">
-            <a href="/about" className="btn primary">
-              Explore More
-            </a>
-            <a href="/contact" className="btn ghost">
-              Contact Us
-            </a>
+            <a href="/about" className="btn primary">Learn More</a>
+            <a href="/contact" className="btn ghost">Contact Us</a>
           </div>
         </div>
       </section>
 
-      {/* 🌾 About Section */}
+      {/* About Section */}
       <section className="about reveal">
         <div className="about-container">
           <div className="about-img-wrapper">
-            <img src={aboutImg} alt="About Durvasha" className="about-img" />
+            <img src={aboutImg} alt="About" className="about-img" />
           </div>
           <div className="about-text">
-            <h2>About <span className="highlight">Us</span></h2>
-            <p>
-              At Durvasha Prakrutik, we believe that nature holds the key to
-              prosperity. Our mission is to bring innovation and tradition
-              together — creating eco-friendly farming systems, educating
-              farmers, and producing chemical-free food for every home.
-            </p>
+            <h2>About Us</h2>
+            <p>We help farmers transition to organic farming, improving soil health and crop yield naturally.</p>
             <ul>
-              <li>🌱 100% Organic & Natural Practices</li>
-              <li>🌾 Farmer Training & Awareness</li>
-              <li>💧 Smart Irrigation Systems</li>
-              <li>🚜 Modern Agricultural Technologies</li>
+              <li>Organic Fertilizers</li>
+              <li>Soil Improvement</li>
+              <li>Sustainable Farming Practices</li>
             </ul>
-            <a href="/about" className="btn secondary">Learn More</a>
           </div>
         </div>
       </section>
 
-      {/* 🌿 Services Section */}
+      {/* Services Section */}
       <section className="services reveal">
-        <h2>Our <span className="highlight">Services</span></h2>
-        <p className="section-desc">
-          We offer innovative and sustainable solutions to make agriculture
-          smarter, efficient, and eco-friendly.
-        </p>
+        <h2>Our Services</h2>
+        <p className="section-desc">Providing the best solutions for organic farming and sustainable agriculture.</p>
         <div className="service-cards">
           <div className="card">
-            <img src={service1} alt="Organic Farming" />
-            <h3>Organic Farming</h3>
-            <p>
-              Helping farmers transition to sustainable, chemical-free farming
-              methods that protect soil and health.
-            </p>
+            <img src={service1} alt="Service 1" />
+            <h3>Organic Fertilizers</h3>
+            <p>High-quality natural fertilizers for healthy crops and soil.</p>
           </div>
           <div className="card">
-            <img src={service2} alt="Advisory Services" />
-            <h3>Advisory Services</h3>
-            <p>
-              Our experts provide personalized field training and real-time
-              farming assistance.
-            </p>
+            <img src={service2} alt="Service 2" />
+            <h3>Soil Enrichment</h3>
+            <p>Enhancing soil fertility using eco-friendly techniques.</p>
           </div>
           <div className="card">
-            <img src={service3} alt="Agri-Tech" />
-            <h3>Agri-Tech Solutions</h3>
-            <p>
-              Integrating smart sensors and AI tools to improve water
-              management and crop yields.
-            </p>
+            <img src={service3} alt="Service 3" />
+            <h3>Farm Consultation</h3>
+            <p>Expert advice to improve yield and reduce chemical dependency.</p>
           </div>
         </div>
       </section>
 
-      {/* 🌻 Achievements Section */}
-      <section className="achievements reveal">
-        <div className="achieve-grid">
-          <div className="achieve-item">
-            <h3>1200+</h3>
-            <p>Happy Farmers</p>
-          </div>
-          <div className="achieve-item">
-            <h3>85+</h3>
-            <p>Eco-Projects Completed</p>
-          </div>
-          <div className="achieve-item">
-            <h3>15+</h3>
-            <p>States Served</p>
-          </div>
-          <div className="achieve-item">
-            <h3>10+</h3>
-            <p>Years of Experience</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 🌻 Testimonial Section */}
+      {/* Testimonials Section */}
       <section className="testimonial reveal">
         <h2>What <span className="highlight">Farmers Say</span></h2>
         <div className="testimonial-card">
           <img src={farmerImg} alt="Farmer" />
           <blockquote>
-            “Durvasha Prakrutik helped me adopt organic farming and improve my
-            soil health. My yield and profits have grown naturally!”
+            “Durvasha Prakrutik helped me adopt organic farming and improve my soil health. My yield and profits have grown naturally!”
           </blockquote>
-          <p className="farmer-name">— Ramesh Patel, Gujarat</p>
+          <p className="farmer-name">Ramesh Patel</p>
         </div>
       </section>
 
-      {/* 🌱 CTA Section */}
-      <section className="cta reveal">
-        <h2>Join the Green Revolution</h2>
-        <p>Partner with us to create a future that grows sustainably for all.</p>
-        <a href="/contact" className="btn primary">Get in Touch</a>
+      {/* Flowing Image Slider Section */}
+      <section className="flow-gallery reveal">
+        <h2>Our Farm Highlights</h2>
+        <div className="flow-container">
+          <div className="flow-track">
+            {[c1, c2, c3, c4, c1, c2, c3, c4, c1, c2, c3, c4].map((img, index) => (
+              <img src={img} alt={`Farm ${index + 1}`} key={index} />
+            ))}
+          </div>
+        </div>
       </section>
 
+      {/* Footer */}
       <Footer />
-    </main>
+    </div>
   );
 }

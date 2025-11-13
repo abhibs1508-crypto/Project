@@ -7,6 +7,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Gallery from "./components/Gallery";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceDetail />} /> {/* ✅ Detail Page */}
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/gallery" element={<Gallery />} />
+         <Route path="/contact" element={<Contact />} />
       </Routes>
       {/* <Footer /> */}
     </Router>

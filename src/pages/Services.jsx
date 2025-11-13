@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Services.css";
-
+import Footer from "../components/Footer";
+// 🌿 Image Imports
 import organicImg from "../assets/organic-farming.jpeg";
 import irrigationImg from "../assets/irrigation.jpeg";
 import compostImg from "../assets/compost.jpeg";
@@ -87,7 +88,9 @@ export default function Services() {
             </div>
           </div>
         ))}
+
       </section>
+      <Footer/>
     </main>
   );
 }

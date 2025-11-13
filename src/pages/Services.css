@@ -4,6 +4,7 @@
   color: #1b5e20;
   min-height: 100vh;
   overflow-x: hidden;
+  padding-bottom: 3rem;
 }
 
 /* Header */
@@ -59,6 +60,8 @@
   height: 230px;
   object-fit: cover;
   transition: transform 1s ease;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
 }
 
 .service-card:hover .service-img img {
@@ -113,4 +116,52 @@
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 🌿 Responsive Design */
+@media (max-width: 1024px) {
+  .services-header h1 {
+    font-size: 2.4rem;
+  }
+  .services-header p {
+    font-size: 1rem;
+  }
+  .services-grid {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-header {
+    width: 95%;
+    padding: 2.5rem 1rem;
+  }
+  .services-header h1 {
+    font-size: 2rem;
+  }
+  .service-content h3 {
+    font-size: 1.3rem;
+  }
+  .service-content p {
+    font-size: 0.95rem;
+  }
+  .service-img img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-header h1 {
+    font-size: 1.8rem;
+  }
+  .services-header p {
+    font-size: 0.9rem;
+  }
+  .read-more {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .service-img img {
+    height: 180px;
+  }
 }

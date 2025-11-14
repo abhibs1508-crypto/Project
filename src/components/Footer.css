@@ -1,5 +1,8 @@
 /* 🌿 Footer Base Styling */
 .footer {
+  width: 100vw !important;              /* 🔥 Full-width */
+  min-height: 100vh;                    /* 🔥 Full-screen height (remove if unwanted) */
+
   background: linear-gradient(135deg, #c9c777cc, #b8c39f);
   color: #333;
   padding: 60px 0 30px;
@@ -10,6 +13,14 @@
   /* 🌈 Gradient Top Border */
   border-top: 4px solid;
   border-image: linear-gradient(90deg, #4caf50, #c6a037) 1;
+
+  box-sizing: border-box;
+}
+
+/* Prevent parent containers from restricting width */
+.footer,
+.footer * {
+  box-sizing: border-box;
 }
 
 /* 🌾 Footer Container Layout */
@@ -18,6 +29,7 @@
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 40px;
   width: 85%;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -53,7 +65,7 @@
   margin-bottom: 16px;
 }
 
-/* ✨ Underline Effect for h3 */
+/* ✨ Underline Effect */
 .footer h3::after {
   content: "";
   position: absolute;
@@ -136,4 +148,16 @@
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(25px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌱 Responsive Fixes */
+@media (max-width: 768px) {
+  .footer {
+    min-height: auto; /* Full height not needed for mobile */
+    padding: 50px 20px;
+  }
+
+  .footer-container {
+    width: 92%;
+  }
 }
